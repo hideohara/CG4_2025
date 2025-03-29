@@ -4,13 +4,14 @@
 using namespace MathUtility;
 
 // 初期化
-void Particle::Initialize(Model* model)
+void Particle::Initialize(Model* model, Vector3 position)
 {
 	// NULLポインタチェック
 	assert(model);
 
 	// 引数として受け取ったデータをメンバ変数に記録する
 	model_ = model;
+	worldTransform_.translation_ = position;
 
 	// 色の設定
 	objectColor_.Initialize();
@@ -24,13 +25,10 @@ void Particle::Initialize(Model* model)
 void Particle::Update()
 {
 	// 上へ移動
-	worldTransform_.translation_ += {0.0f, 0.1f, 0.0f};
+	//worldTransform_.translation_ += {0.0f, 0.1f, 0.0f};
 
 	// 色変更オブジェクトに色の数値を設定する
 	objectColor_.SetColor(color_);
-
-	// 行列を定数バッファに転送
-	//worldTransform_.TransferMatrix();
 
 	// 行列を更新
 	worldTransform_.UpdateMatrix();
