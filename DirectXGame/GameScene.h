@@ -35,5 +35,10 @@ private:
 	std::list<Particle*> particles_;
 
 
+	/// <summary>
+	/// パーティクル発生
+	/// </summary>
+	/// <param name="position">位置</param>
+	void ParticleBorn(Vector3 position);
 };
 
