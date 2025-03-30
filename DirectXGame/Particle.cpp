@@ -36,7 +36,7 @@ void Particle::Update()
 		counter_ = kDuration;
 		// 終了扱いにする
 		//isFinished_ = true;
-		return;
+		//return;
 	}
 
 	// 上へ移動
