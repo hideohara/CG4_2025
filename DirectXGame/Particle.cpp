@@ -28,6 +28,11 @@ void Particle::Initialize(Model* model, Vector3 position, Vector3 velocity)
 // 更新
 void Particle::Update()
 {
+	// 終了なら何もしない
+	if (isFinished_) {
+		return;
+	}
+
 	// カウンターを1フレーム分の秒数進める
 	counter_ += 1.0f / 60.0f;
 
@@ -35,8 +40,7 @@ void Particle::Update()
 	if (counter_ >= kDuration) {
 		counter_ = kDuration;
 		// 終了扱いにする
-		//isFinished_ = true;
-		//return;
+		isFinished_ = true;
 	}
 
 	// 上へ移動
